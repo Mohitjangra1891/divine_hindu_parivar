@@ -26,13 +26,13 @@ class forgot_password extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding:  EdgeInsets.all(screenHeight*0.02),
+                  padding: EdgeInsets.all(screenHeight * 0.02),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsets.symmetric(vertical:  screenHeight * 0.02),
+                        padding: EdgeInsets.symmetric(vertical: screenHeight * 0.02),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -56,7 +56,6 @@ class forgot_password extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: screenHeight * 0.03),
-
                       Center(
                         child: Container(
                           decoration: BoxDecoration(
@@ -85,7 +84,8 @@ class forgot_password extends StatelessWidget {
                           ' To verify your account, please enter your email',
                           style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: white_color),
                         ),
-                      ),  const Center(
+                      ),
+                      const Center(
                         child: Text(
                           ' We\'ll send a 4-digit verification code to your email',
                           style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: white_color),
@@ -114,12 +114,13 @@ class forgot_password extends StatelessWidget {
                         SizedBox(height: screenHeight * 0.03),
                         button_Primary(
                           title: 'Continue',
-                          onPressed: () {                              Navigator.push(context, MaterialPageRoute(builder: (context) => CheckYourEmailScreen()));
-
-
-
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CheckYourEmailScreen(isForResetPassword: true)));
                           },
-                          width: screenWidth*0.50,
+                          width: screenWidth * 0.50,
                         ),
                         SizedBox(height: screenHeight * 0.03),
                         InkWell(

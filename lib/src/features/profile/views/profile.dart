@@ -2,6 +2,7 @@ import 'package:divine_hindu_parivar/src/utils/imges.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/colors.dart';
+import 'edit_profile.dart';
 class profile_Screen extends StatelessWidget {
   const profile_Screen({super.key});
  @override
@@ -20,9 +21,48 @@ class profile_Screen extends StatelessWidget {
           child: Center(
             child: Padding(
               padding: EdgeInsets.all(screenHeight * 0.03),
-              child: const Text(
-                'Edit Profile',
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600, color: white_color),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Text(
+                    'Edit Profile',
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600, color: white_color),
+                  ),
+                  SizedBox(height: screenHeight * 0.01),
+                  Container(
+                    width: screenWidth * 0.35,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>edit_profile_screen()));
+
+                      },
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: Size(screenWidth * 0.38, screenHeight * 0.05),
+                        backgroundColor: white_color,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.edit,
+                              color: primary_color,
+                              size: 16,
+                            ),
+                            Text(
+                              ' Edit',
+                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: primary_color),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                ],
               ),
             ),
           ),

@@ -5,6 +5,7 @@ import '../../../../utils/colors.dart';
 import '../../../../utils/imges.dart';
 import '../../../../widgets/button.dart';
 import '../../../../widgets/text_field.dart';
+import '../../../home/views/latest_updates.dart';
 import '../../forgot password/views/forgot_password.dart';
 import '../../register/views/register_screen.dart';
 
@@ -77,7 +78,11 @@ class login_screen extends StatelessWidget {
                       ),
 
                       SizedBox(height: screenHeight * 0.04),
-                      button_Primary(title:'Log In', onPressed: () {  },),
+                      button_Primary(title:'Log In', onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>LatestUpdatesScreen()));
+
+
+                      },),
                       SizedBox(height: screenHeight * 0.04),
                       Center(
                         child: InkWell(

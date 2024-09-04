@@ -1,6 +1,8 @@
 import 'package:divine_hindu_parivar/src/utils/colors.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../main.dart';
+
 class ResetPasswordScreen extends StatefulWidget {
   @override
   State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
@@ -222,7 +224,22 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       SizedBox(height: screenHeight * 0.04),
                       Center(
                         child: ElevatedButton(
-                          onPressed: _isButtonEnabled ? () {} : (){},
+                          onPressed: _isButtonEnabled ? () {
+
+                            // Navigates to the SplashScreen and removes all previous routes
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) => splash_screen()),
+                                  (Route<dynamic> route) => false, // This removes all the previous routes
+                            );
+                          } : (){
+                            // Navigates to the SplashScreen and removes all previous routes
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) => splash_screen()),
+                                  (Route<dynamic> route) => false, // This removes all the previous routes
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: primary_color,
                             shape: RoundedRectangleBorder(

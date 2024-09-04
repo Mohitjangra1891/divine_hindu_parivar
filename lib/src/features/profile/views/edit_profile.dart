@@ -16,13 +16,14 @@ class edit_profile_screen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(children: [
           Container(
-            height: screenHeight * 0.30,
+            height: screenHeight * 0.25,
             width: screenWidth,
             decoration: const BoxDecoration(
                 color: primary_color, borderRadius: BorderRadius.only(bottomRight: Radius.circular(15))),
             child: Padding(
               padding: EdgeInsets.all(screenHeight * 0.03),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   const Text(
                     'Input Your Changes',
@@ -35,36 +36,7 @@ class edit_profile_screen extends StatelessWidget {
                     // child: Image.asset(app_logo , fit: BoxFit.cover,),
                   ),
                   SizedBox(height: screenHeight * 0.02),
-                  Container(
-                    width: screenWidth * 0.40,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: Size(screenWidth * 0.45, screenHeight * 0.06),
-                        backgroundColor: white_color,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.edit,
-                              color: primary_color,
-                              size: 16,
-                            ),
-                            Text(
-                              ' Edit',
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: primary_color),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
+
                 ],
               ),
             ),

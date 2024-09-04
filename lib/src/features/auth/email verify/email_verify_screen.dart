@@ -5,9 +5,16 @@ import 'package:flutter/services.dart';
 import 'package:divine_hindu_parivar/src/utils/colors.dart';
 
 import '../../../widgets/button.dart';
+import '../../home/views/latest_updates.dart';
+import '../reset password/views/reser_password.dart';
 
 
 class CheckYourEmailScreen extends StatefulWidget {
+
+  final bool isForResetPassword;
+
+  const CheckYourEmailScreen({super.key, required this.isForResetPassword});
+
   @override
   State<CheckYourEmailScreen> createState() => _CheckYourEmailScreenState();
 }
@@ -60,13 +67,13 @@ class _CheckYourEmailScreenState extends State<CheckYourEmailScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: screenHeight * 0.02),
+            SizedBox(height: screenHeight * 0.01),
             InkWell(
               onTap: () {
                 Navigator.pop(context);
               },
               child: Container(
-                height: screenHeight*0.08,
+                height: screenHeight*0.06,
                 child: const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Row(
@@ -87,7 +94,7 @@ class _CheckYourEmailScreenState extends State<CheckYourEmailScreen> {
             Spacer(),
             // SizedBox(height: screenHeight * 0.02),
             Container(
-                height: screenHeight * 0.85,
+                height: screenHeight * 0.88,
                 width: screenWidth,
                 decoration: const BoxDecoration(
                     color: white_color, borderRadius: BorderRadius.only(topLeft: Radius.circular(70))),
@@ -177,7 +184,31 @@ class _CheckYourEmailScreenState extends State<CheckYourEmailScreen> {
                       SizedBox(height: screenHeight * 0.04),
                       button_Primary(
                         title: 'Continue',
-                        onPressed: () {},
+                        onPressed: () {
+
+                          // Check the flag to determine the next screen
+                          if (widget.isForResetPassword) {
+                            // Navigate to Reset Password Screen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ResetPasswordScreen()),
+                            );
+                          } else {
+                            // Navigates to the SplashScreen and removes all previous routes
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) => LatestUpdatesScreen()),
+                                  (Route<dynamic> route) => false, // This removes all the previous routes
+                            );
+                            // // Navigate to Home Screen
+                            // Navigator.pushReplacement(
+                            //   context,
+                            //   MaterialPageRoute(builder: (context) => LatestUpdatesScreen()),
+                            // );
+                          }
+                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>LatestUpdatesScreen()));
+
+                        },
                       ),
                       SizedBox(height: screenHeight * 0.02),
                       Center(

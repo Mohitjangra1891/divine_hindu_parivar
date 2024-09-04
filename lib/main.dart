@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LatestUpdatesScreen(),
+      home: splash_screen(),
     );
   }
 }
@@ -50,92 +50,90 @@ class splash_screen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
-            color: primary_color,
-            child: Padding(
-              padding: EdgeInsets.all(screenHeight * 0.03),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Center(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        color: white_color,
-                      ),
-                      // width: screenHeight * 0.88,
-                      // height: screenHeight * 0.30,
-                      padding: EdgeInsets.all( screenHeight * 0.02),
-                      child: Image.asset(
-                        app_logo,
-                        fit: BoxFit.fill,
-                      ),
+    return Scaffold(
+      body: Container(
+          color: primary_color,
+          child: Padding(
+            padding: EdgeInsets.all(screenHeight * 0.03),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      color: white_color,
+                    ),
+                    // width: screenHeight * 0.88,
+                    // height: screenHeight * 0.30,
+                    padding: EdgeInsets.all( screenHeight * 0.02),
+                    child: Image.asset(
+                      app_logo,
+                      fit: BoxFit.fill,
                     ),
                   ),
-                  SizedBox(height: screenHeight * 0.02),
-                  Center(
-                    child: const Text(
-                      'Welcome To Divine ',
-                      style: TextStyle(fontSize: 28, color: white_color, fontWeight: FontWeight.w600),
-                      ),
+                ),
+                SizedBox(height: screenHeight * 0.02),
+                Center(
+                  child: const Text(
+                    'Welcome To Divine ',
+                    style: TextStyle(fontSize: 28, color: white_color, fontWeight: FontWeight.w600),
+                    ),
+                ),
+                // SizedBox(height: screenHeight * 0.02),
+                Center(
+                  child: const Text(
+                    'Hindu Parivar',
+                    style: TextStyle(fontSize: 28, color: white_color, fontWeight: FontWeight.w600),
                   ),
-                  // SizedBox(height: screenHeight * 0.02),
-                  Center(
-                    child: const Text(
-                      'Hindu Parivar',
-                      style: TextStyle(fontSize: 28, color: white_color, fontWeight: FontWeight.w600),
+                ),
+                SizedBox(height: screenHeight * 0.08),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>login_screen()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(screenWidth*0.45, screenHeight * 0.06),
+                    backgroundColor: white_color,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
-                  SizedBox(height: screenHeight * 0.08),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>login_screen()));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: Size(screenWidth*0.45, screenHeight * 0.06),
-                      backgroundColor: white_color,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(4.0),
-                      child: Text(
-                        'Log In',
-                        style: TextStyle(fontSize: 16, color: primary_color,fontWeight: FontWeight.w400),
-                      ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(4.0),
+                    child: Text(
+                      'Log In',
+                      style: TextStyle(fontSize: 16, color: primary_color,fontWeight: FontWeight.w400),
                     ),
                   ),
-                  SizedBox(height: screenHeight * 0.02),
-                  ElevatedButton(
-                    onPressed: () {
+                ),
+                SizedBox(height: screenHeight * 0.02),
+                ElevatedButton(
+                  onPressed: () {
 
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>register_screen()));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: Size(screenWidth*0.45, screenHeight * 0.06),
-                      backgroundColor: primary_color,
-                      side: BorderSide(color: white_color, width: 2), //
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 4.0 ),
-                      child: Text(
-                        'Register',
-                        style: TextStyle(fontSize: 16, color: white_color ,fontWeight: FontWeight.w400),
-                      ),
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>register_screen()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(screenWidth*0.45, screenHeight * 0.06),
+                    backgroundColor: primary_color,
+                    side: BorderSide(color: white_color, width: 2), //
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
-                  SizedBox(height: screenHeight * 0.08),
-                ],
-              ),
-            )),
-      ),
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 4.0 ),
+                    child: Text(
+                      'Register',
+                      style: TextStyle(fontSize: 16, color: white_color ,fontWeight: FontWeight.w400),
+                    ),
+                  ),
+                ),
+                SizedBox(height: screenHeight * 0.08),
+              ],
+            ),
+          )),
     );
   }
 }
